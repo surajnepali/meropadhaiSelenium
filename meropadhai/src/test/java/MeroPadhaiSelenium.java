@@ -1,3 +1,4 @@
+import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,7 +37,19 @@ public class MeroPadhaiSelenium {
         WebElement facultyText = driver.findElement(By.cssSelector(cssSelector));
         System.out.println("Second Faculty Name: " + facultyText.getText());
         Assert.assertEquals(facultyText.getText(), "Faculty of Engineering");
-        System.out.println("Checking is done succesfully");
+        driver.findElement(By.id("menu-button-33")).click();
+        driver.findElement(By.xpath("//button[text()='All']")).click();
+        Thread.sleep(2000);
+        System.out.println("Back to All is done succesfully");
+        List<WebElement> options = driver.findElements(By.cssSelector("article[class='css-bc2ghm'] h2"));
+        System.out.println("Total number of course cards are: " + options.size());
+        for(WebElement option: options){
+            if(option.getText().equalsIgnoreCase("Test-videos")){
+                option.click();
+                break;
+            }
+        }
+        Thread.sleep(2000);
         driver.close();
 
         // Parent Child Relationship
