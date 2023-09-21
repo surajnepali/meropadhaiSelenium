@@ -1,12 +1,15 @@
-// import java.lang.reflect.Array;
-// import java.util.Arrays;
 import java.time.Duration;
 import java.util.List;
+import java.util.function.Function;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
 public class MeroPadhaiSelenium {
@@ -147,5 +150,22 @@ public class MeroPadhaiSelenium {
         //      - example: implicit wait is initialized as 5 seconds. 
                 //      -If the system displays the elements in 3 seconds then the Selenium does not wait to complete the initialized 5 seconds
                 //      -If the system does not display the elements in 5 seconds then the Selenium throws error message 
+
+        // Fluent Wait:
+        // Syntax Code:
+        // Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+        //     .withTimeout(Duration.ofSeconds(30))
+        //     .pollingEvery(Duration.ofSeconds(5))
+        //     .ignoring(NoSuchElementException.class);
+
+        // WebElement foo = wait.until(new Function<WebDriver,WebElement>() {
+        //      public WebElement apply(WebDriver driver){
+        //         if(driver.findElement(By.cssSelector("[id='finish'] h4")).isDisplayed()){
+        //             return driver.findElement(By.cssSelector("[id='finish'] h4"));
+        //         }else
+        //             return null;
+        //      }
+        // });
+        // System.out.println(driver.findElement(By.cssSelector("[id='finish'] h4")).getText());
     }
 }
