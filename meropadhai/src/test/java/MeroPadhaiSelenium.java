@@ -1,15 +1,14 @@
 import java.time.Duration;
 import java.util.List;
-import java.util.function.Function;
-
+// import java.util.function.Function;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
+// import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.FluentWait;
+// import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
+// import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
 public class MeroPadhaiSelenium {
@@ -167,5 +166,17 @@ public class MeroPadhaiSelenium {
         //      }
         // });
         // System.out.println(driver.findElement(By.cssSelector("[id='finish'] h4")).getText());
+
+        // Actions a = new Actions(driver);
+
+        //.doubleClick() to double click the text
+        //.contextClick() to right click on element by mouse
+
+        //Switching Windows
+        // Set<String> windows = driver.getWindowHandles();
+        // Interator<String> it = windows.iterator();
+        // String parentId = it.next();
+        // String childId = it.next();
+        // driver.switchTo().window(childId);
     }
 }
