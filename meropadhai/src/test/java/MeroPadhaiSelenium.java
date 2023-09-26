@@ -1,14 +1,17 @@
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
+import java.util.Iterator;
 import java.util.List;
-// import java.util.function.Function;
+import java.util.Set;
 import org.openqa.selenium.By;
-// import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-// import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
-// import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
 public class MeroPadhaiSelenium {
@@ -100,13 +103,53 @@ public class MeroPadhaiSelenium {
         }
     }
     
-    public static void courseInCart(WebDriver driver){
+    public static void courseInCart(WebDriver driver) throws InterruptedException, MalformedURLException, IOException{
         Assert.assertEquals(driver.findElement(By.xpath("//h2[@class='chakra-heading css-1lthznb']")).getText(), "Price Summary");
         System.out.println("URL after the user is on the Cart page: " + driver.getCurrentUrl());
+
+        // driver.findElement(By.xpath("//button[@class='chakra-button css-1tpkmit']")).click();
+        // driver.findElement(By.xpath("//button[@class='chakra-button css-18392ov']")).click();
+
+        System.out.println("Total Link Counts available in this page: " + driver.findElements(By.tagName("a")).size());  // Prints total count of links available in this page
+
+        // To get the count of links of a footer
+        WebElement footerDriver = driver.findElement(By.cssSelector("footer.css-plecv")); // this is called limiting webdriver scope 
+        System.out.println("Total count of links available in Footer of this page: " + footerDriver.findElements(By.tagName("a")).size());
+
+        List<WebElement> links = footerDriver.findElements(By.xpath("//div[@class='css-t45qev'][1]/ul/li/a"));
+        System.out.println(links.size());
+        for(int i = 0; i < links.size(); i++){
+            String useKeyboard = Keys.chord(Keys.COMMAND, Keys.ENTER);
+            links.get(i).sendKeys(useKeyboard);
+            Thread.sleep(5000);
+        }
+
+        Set<String> windows = driver.getWindowHandles();
+        Iterator<String> iterate = windows.iterator();
+
+        while(iterate.hasNext()){
+            driver.switchTo().window(iterate.next());
+            System.out.println("Title of current page: " + driver.getTitle());
+            System.out.println("Url of current page: " + driver.getCurrentUrl());
+        }
+
+        List<WebElement> hrefLinks = driver.findElements(By.cssSelector("ul[class='css-bbefzs'] li[class='css-fnhbel'] a"));
+        for(int i = 0; i < hrefLinks.size(); i++){
+            String url = hrefLinks.get(i).getAttribute("href");
+            HttpURLConnection conn = (HttpURLConnection)new URL(url).openConnection();
+            conn.setRequestMethod("HEAD");
+            conn.connect();
+            int responseCode = conn.getResponseCode();
+            if(responseCode >= 400){
+                System.out.println(hrefLinks.get(i).getText() + "'s link is broken because its status code is: " + responseCode);
+            }else{
+                System.out.println("Status code of Link " + (i+1) + " is: " + responseCode);
+            }
+        }
     }
 
 
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args) throws InterruptedException, MalformedURLException, IOException{
 
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
