@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -6,13 +7,17 @@ import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import static org.openqa.selenium.support.locators.RelativeLocator.*;
 
 public class MeroPadhaiSelenium {
 
@@ -21,10 +26,36 @@ public class MeroPadhaiSelenium {
         System.out.println(driver.getCurrentUrl());
     }
 
-    public static void setLoginCredentials(WebDriver driver){
+    public static void setLoginCredentials(WebDriver driver) throws IOException{
         driver.findElement(By.cssSelector("button.chakra-button.css-1cvkl7w")).click();
-        driver.findElement(By.name("email")).sendKeys("surajclinchtech@gmail.com");
-        driver.findElement(By.id("field-3")).sendKeys("12345678");
+
+        driver.findElement(By.xpath("//a[@aria-label='register']")).click();
+
+        // new version of Selenium has new Relative Locator ie toLeftOf()
+        WebElement readAndAgreeElement = driver.findElement(By.cssSelector("p.css-utibjg"));
+        driver.findElement(with(By.tagName("span")).toLeftOf(readAndAgreeElement)).click();
+
+        // new version of Selenium has new Relative Locator ie toRightOf()
+        WebElement checkBox = driver.findElement(By.cssSelector("span.css-70a397"));
+        System.out.println(driver.findElement(with(By.tagName("a")).toRightOf(checkBox)).getText());
+
+        driver.findElement(By.cssSelector("a.text-primary-2")).click();
+
+        // new version of Selenium has new Relative Locator ie above()
+        WebElement nameField = driver.findElement(By.name("email"));
+        System.out.println(driver.findElement(with(By.tagName("label")).above(nameField)).getText());
+        nameField.sendKeys("surajclinchtech@gmail.com");
+
+        // new version of Selenium has new Relative Locator ie below()
+        WebElement passwordLabel = driver.findElement(By.id("field-3-label"));
+        driver.findElement(with(By.tagName("input")).below(passwordLabel)).sendKeys("12345678");
+
+        // Taking partial screenshot i.e. Taking screenshot of WebElement
+        File file = passwordLabel.getScreenshotAs(OutputType.FILE);
+
+        // FileUtils has to installed in pom.xml file
+        FileUtils.copyFile(file, new File("passwordLabel.png"));
+
         driver.findElement(By.xpath("//button[@type='submit']")).click();
     }
 
@@ -221,5 +252,9 @@ public class MeroPadhaiSelenium {
         // String parentId = it.next();
         // String childId = it.next();
         // driver.switchTo().window(childId);
+
+        // Invoking new window
+        // driver.switchTo().newWindow(WindowType.TAB) // to open new blank tab
+        // driver.switchTo().newWindow(WindowType.WINDOW) // to open new blank window
     }
 }
