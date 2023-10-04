@@ -1,0 +1,28 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MyTestSuite">
+    <test name="java">
+        <classes>
+            <!-- Use the fully qualified class name including the package -->
+            <class name="TestNG.Tut" />
+            <class name="TestNG.Tut1"/>
+        </classes>
+    </test>
+
+    <test name="java1">
+        <classes>
+            <class name="TestNG.Tut2">
+                <methods>
+                    <exclude name="isFail"/>  <!--it runs all the testcases but excludes this testcase -->
+                    <!-- if it is <exclude name="is.*"/>, then it does not execute all the testcases that start with "is" from this class > -->
+                </methods>
+            </class>
+        </classes>
+
+        <!-- While we are doing regression testing, it is very good to have package level of testing by following method -->
+        <!--
+            <packages>
+                <package name="java">
+            </packages>
+        -->
+    </test>
+</suite>
