@@ -1,5 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- To run the tests parallely, we need to add parallel="tests" thread-count="2", it means 2 <test></test>s are running parallely, which is not suggested in real world systems -->
 <suite name="MyTestSuite">
+    <parameter name="URL" value="https://demo.meropadhai.com"/>
+    <listeners>
+        <listener class-name='TestNG.Listeners'/>
+    </listeners>
     <test name="java">
         <classes>
             <!-- Use the fully qualified class name including the package -->
@@ -24,5 +29,11 @@
                 <package name="java">
             </packages>
         -->
+    </test>
+
+    <test name="oopPractise">
+        <classes>
+            <class name="OOP_Practise.PS2"/>
+        </classes>
     </test>
 </suite>

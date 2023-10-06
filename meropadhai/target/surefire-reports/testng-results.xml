@@ -1,39 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-04T13:19:40 NPT" name="MyTestSuite" finished-at="2023-10-04T13:19:41 NPT" duration-ms="264">
+  <suite started-at="2023-10-06T13:39:34 NPT" name="MyTestSuite" finished-at="2023-10-06T13:39:34 NPT" duration-ms="183">
     <groups>
     </groups>
-    <test started-at="2023-10-04T13:19:40 NPT" name="java" finished-at="2023-10-04T13:19:40 NPT" duration-ms="15">
+    <test started-at="2023-10-06T13:39:34 NPT" name="java" finished-at="2023-10-06T13:39:34 NPT" duration-ms="17">
       <class name="TestNG.Tut1">
-        <test-method signature="comeHome()[pri:0, instance:TestNG.Tut1@7a52f2a2]" started-at="2023-10-04T13:19:40 NPT" name="comeHome" finished-at="2023-10-04T13:19:40 NPT" duration-ms="0" status="PASS">
+        <test-method signature="comeHome(java.lang.String)[pri:0, instance:TestNG.Tut1@22635ba0]" started-at="2023-10-06T13:39:34 NPT" name="comeHome" finished-at="2023-10-06T13:39:34 NPT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[https://demo.meropadhai.com]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- comeHome -->
-        <test-method signature="goHome()[pri:0, instance:TestNG.Tut1@7a52f2a2]" started-at="2023-10-04T13:19:40 NPT" name="goHome" finished-at="2023-10-04T13:19:40 NPT" duration-ms="0" status="PASS">
+        <test-method signature="donotComeHome(java.lang.String,java.lang.String)[pri:0, instance:TestNG.Tut1@22635ba0]" started-at="2023-10-06T13:39:34 NPT" name="donotComeHome" data-provider="getData" finished-at="2023-10-06T13:39:34 NPT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[secondUserName]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[secondPassword]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- donotComeHome -->
+        <test-method signature="donotComeHome(java.lang.String,java.lang.String)[pri:0, instance:TestNG.Tut1@22635ba0]" started-at="2023-10-06T13:39:34 NPT" name="donotComeHome" data-provider="getData" finished-at="2023-10-06T13:39:34 NPT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firstUserName]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[firstUserName]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- donotComeHome -->
+        <test-method signature="goHome()[pri:0, instance:TestNG.Tut1@22635ba0]" started-at="2023-10-06T13:39:34 NPT" name="goHome" finished-at="2023-10-06T13:39:34 NPT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- goHome -->
-        <test-method signature="donotComeHome()[pri:0, instance:TestNG.Tut1@7a52f2a2]" started-at="2023-10-04T13:19:40 NPT" name="donotComeHome" finished-at="2023-10-04T13:19:40 NPT" duration-ms="0" status="PASS">
+        <test-method signature="donotComeHome(java.lang.String,java.lang.String)[pri:0, instance:TestNG.Tut1@22635ba0]" started-at="2023-10-06T13:39:34 NPT" name="donotComeHome" data-provider="getData" finished-at="2023-10-06T13:39:34 NPT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[thirdUserName]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[thirdPassword]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- donotComeHome -->
       </class> <!-- TestNG.Tut1 -->
       <class name="TestNG.Tut">
-        <test-method signature="Demo()[pri:0, instance:TestNG.Tut@5e4c8041]" started-at="2023-10-04T13:19:40 NPT" name="Demo" finished-at="2023-10-04T13:19:40 NPT" duration-ms="1" status="PASS">
+        <test-method signature="Demo()[pri:0, instance:TestNG.Tut@78dd667e]" started-at="2023-10-06T13:39:34 NPT" name="Demo" finished-at="2023-10-06T13:39:34 NPT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Demo -->
       </class> <!-- TestNG.Tut -->
     </test> <!-- java -->
-    <test started-at="2023-10-04T13:19:41 NPT" name="java1" finished-at="2023-10-04T13:19:41 NPT" duration-ms="1">
+    <test started-at="2023-10-06T13:39:34 NPT" name="java1" finished-at="2023-10-06T13:39:34 NPT" duration-ms="1">
       <class name="TestNG.Tut2">
-        <test-method signature="isPass()[pri:0, instance:TestNG.Tut2@79efed2d]" started-at="2023-10-04T13:19:41 NPT" name="isPass" finished-at="2023-10-04T13:19:41 NPT" duration-ms="0" status="PASS">
+        <test-method signature="isPass()[pri:0, instance:TestNG.Tut2@318ba8c8]" started-at="2023-10-06T13:39:34 NPT" name="isPass" finished-at="2023-10-06T13:39:34 NPT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- isPass -->
       </class> <!-- TestNG.Tut2 -->
     </test> <!-- java1 -->
+    <test started-at="2023-10-06T13:39:34 NPT" name="oopPractise" finished-at="2023-10-06T13:39:34 NPT" duration-ms="1">
+      <class name="OOP_Practise.PS2">
+        <test-method signature="ps2()[pri:0, instance:OOP_Practise.PS2@2bbf180e]" started-at="2023-10-06T13:39:34 NPT" name="ps2" finished-at="2023-10-06T13:39:34 NPT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ps2 -->
+      </class> <!-- OOP_Practise.PS2 -->
+    </test> <!-- oopPractise -->
   </suite> <!-- MyTestSuite -->
 </testng-results>
